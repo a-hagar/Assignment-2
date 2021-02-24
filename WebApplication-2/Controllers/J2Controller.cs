@@ -20,7 +20,14 @@ namespace WebApplication_2.Controllers
 
         [HttpGet]
         [Route("api/J1/DiceGame/{m}/{n}")]
+        public string DiceGame(int m, int n)
+        {
+           
 
+
+            string message = "There are " + m + " ways to get the sum of 10";
+            return message;
+        }
 
 
     }
