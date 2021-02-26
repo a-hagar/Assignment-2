@@ -23,6 +23,7 @@ namespace WebApplication_2.Controllers
         [Route("api/J1/Menu/{burger}/{drink}/{side}/{dessert}")]
         public string Menu(int burger, int drink, int side, int dessert)
         {
+
             // burger menu, used 0 as a blank to start the array at 1, user choses item with id
             int burger0 = 0;
             int burger1 = 461;
@@ -30,7 +31,7 @@ namespace WebApplication_2.Controllers
             int burger3 = 420;
             int burger4 = 0;
             int[] burgerMenu = { burger0, burger1, burger2, burger3, burger4 };
-            var burgerOrder = burgerMenu[burger];
+
 
             // drink menu, used 0 as a blank to start the array at 1, user choses item with id
             int drink0 = 0;
@@ -39,7 +40,7 @@ namespace WebApplication_2.Controllers
             int drink3 = 118;
             int drink4 = 0;
             int[] drinkMenu = { drink0, drink1, drink2, drink3, drink4 };
-            var drinkOrder = drinkMenu[drink];
+           
 
             // side menu, used 0 as a blank to start the array at 1, user choses item with id
             int side0 = 0;
@@ -48,7 +49,7 @@ namespace WebApplication_2.Controllers
             int side3 = 70;
             int side4 = 0;
             int[] sideMenu = { side0, side1, side2, side3, side4 };
-            var sideOrder = sideMenu[side];
+            
 
             // dessert menu, used 0 as a blank to start the array at 1, user choses item with id
             int dessert0 = 0;
@@ -57,18 +58,35 @@ namespace WebApplication_2.Controllers
             int dessert3 = 75;
             int dessert4 = 0;
             int[] dessertMenu = { dessert0, dessert1, dessert2, dessert3, dessert4 };
-            var dessertOrder = dessertMenu[dessert];
 
-            //adds all the individual orders together to calculate total calories
-            var newOrder = burgerOrder + drinkOrder + sideOrder + dessertOrder;
+            // a message to prevent incorrect orders
+            string wrongOrder = "Please enter a valid item on the menu!";
 
-            string orderMessage = "Your total calorie count is " + newOrder;
+            //if statement if any order is not on the menu (outisde 1-4)
+            if ( burger < 1 || burger > 4 || drink < 1 || drink > 4 || side < 1 || side > 4 || dessert < 1 || dessert > 4)
+            {
 
-            return orderMessage;
+                return wrongOrder;
 
+            }
+            // else statement if all orders is on the menu
+            else {
+                var burgerOrder = burgerMenu[burger];
+                var drinkOrder = drinkMenu[drink];
+                var sideOrder = sideMenu[side];
+                var dessertOrder = dessertMenu[dessert];
+
+                //adds all the individual orders together to calculate total calories
+                var newOrder = burgerOrder + drinkOrder + sideOrder + dessertOrder;
+
+
+                string orderMessage = "Your total calorie count is " + newOrder;
+
+
+                return orderMessage;
+
+            }
         }
-
-
     }
 }
    
