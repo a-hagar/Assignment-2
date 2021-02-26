@@ -17,6 +17,10 @@ namespace WebApplication_2.Controllers
         /// GET api/J1/Menu/1/2/3/4
         /// "Your total calorie count is 691"
         /// </example> 
+        /// <example>
+        /// GET api/J1/Menu/0/200/-3/44
+        /// "Please order an item from the menu!"
+        /// </example>
 
         
         [HttpGet]
@@ -24,7 +28,7 @@ namespace WebApplication_2.Controllers
         public string Menu(int burger, int drink, int side, int dessert)
         {
 
-            // burger menu, used 0 as a blank to start the array at 1, user choses item with id
+            // burger menu, 0 is blank to start the array at 1, user choses item with id
             int burger0 = 0;
             int burger1 = 461;
             int burger2 = 431;
@@ -33,7 +37,7 @@ namespace WebApplication_2.Controllers
             int[] burgerMenu = { burger0, burger1, burger2, burger3, burger4 };
 
 
-            // drink menu, used 0 as a blank to start the array at 1, user choses item with id
+            // drink menu, 0 is blank to start the array at 1, user choses item with id
             int drink0 = 0;
             int drink1 = 130;
             int drink2 = 160;
@@ -42,7 +46,7 @@ namespace WebApplication_2.Controllers
             int[] drinkMenu = { drink0, drink1, drink2, drink3, drink4 };
            
 
-            // side menu, used 0 as a blank to start the array at 1, user choses item with id
+            // side menu, 0 is blank to start the array at 1, user choses item with id
             int side0 = 0;
             int side1 = 100;
             int side2 = 57;
@@ -51,7 +55,7 @@ namespace WebApplication_2.Controllers
             int[] sideMenu = { side0, side1, side2, side3, side4 };
             
 
-            // dessert menu, used 0 as a blank to start the array at 1, user choses item with id
+            // dessert menu, 0 is blank to start the array at 1, user choses item with id
             int dessert0 = 0;
             int dessert1 = 167;
             int dessert2 = 266;
@@ -59,24 +63,24 @@ namespace WebApplication_2.Controllers
             int dessert4 = 0;
             int[] dessertMenu = { dessert0, dessert1, dessert2, dessert3, dessert4 };
 
-            // a message to prevent incorrect orders
-            string wrongOrder = "Please enter a valid item on the menu!";
+            // a message to prevent incorrect orders outside of array
+            string wrongOrder = "Please order a item from the menu!";
 
-            //if statement if any order is not on the menu (outisde 1-4)
+            // if statement if any order is not on the menu (outisde 1-4)
             if ( burger < 1 || burger > 4 || drink < 1 || drink > 4 || side < 1 || side > 4 || dessert < 1 || dessert > 4)
             {
 
                 return wrongOrder;
 
             }
-            // else statement if all orders is on the menu
+            // else statement if all orders are on the menu
             else {
                 var burgerOrder = burgerMenu[burger];
                 var drinkOrder = drinkMenu[drink];
                 var sideOrder = sideMenu[side];
                 var dessertOrder = dessertMenu[dessert];
 
-                //adds all the individual orders together to calculate total calories
+                // adds all the individual orders together to calculate total calories
                 var newOrder = burgerOrder + drinkOrder + sideOrder + dessertOrder;
 
 
