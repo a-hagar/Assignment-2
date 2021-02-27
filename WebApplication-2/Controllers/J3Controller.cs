@@ -38,7 +38,7 @@ namespace WebApplication_2.Controllers
         {
 
             // if statement that only accepts input from 0 to 2359
-            string errorMsg = "Enter a valid time!";
+            string errorMsg = "Please enter a valid time from 0 to 2359.";
 
             if (time >= 2400)
             {
