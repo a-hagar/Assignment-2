@@ -14,10 +14,10 @@ namespace WebApplication_2.Controllers
         /// link: https://cemc.math.uwaterloo.ca/contests/computing/2009/stage1/juniorEn.pdf#page=6
         
         /// <summary> 
-        /// Finding local times for major Canadian cities based on Ottawa local time
+        /// Finding the local times for major Canadian cities based on Ottawa's local time
         /// </summary>
 
-        /// <param name="time"> Ottawa time in 24 hr format from 0 to </param>
+        /// <param name="time"> Ottawa time in 24 hr format from 0 to 2359 </param>
 
         /// <returns> A list of local times from various Canadian cities  </returns>
 
@@ -32,14 +32,13 @@ namespace WebApplication_2.Controllers
         /// "It is 1330 in St. John's"
         /// </example> 
 
-
         [HttpGet]
         [Route("api/J3/Timezone/{time}")]
         public IEnumerable<string> Timezone(int time)
         {
 
             // if statement that only accepts input from 0 to 2359
-            string errorMsg = "Enter a valid time from  0 to 2359";
+            string errorMsg = "Enter a valid time!";
 
             if (time >= 2400)
             {
@@ -64,17 +63,13 @@ namespace WebApplication_2.Controllers
             int halTime = time + 100;
             int stjTime = time + 130;
 
-            // if statement to roll over to 0
+            // if statement to fix time zones when they go over or under the 24 hr range
             if (vicTime < 0){
-
                 vicTime = vicTime+ 2400;
-
             }
             if (edmTime < 0)
             {
-
                 edmTime = edmTime + 2400;
-
             }
             if (winTime < 0)
             {
