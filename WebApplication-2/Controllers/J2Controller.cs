@@ -10,8 +10,11 @@ namespace WebApplication_2.Controllers
     public class J2Controller : ApiController
     {  /// <summary>
        ///  Finding the total number of ways two dice, regardless of sides, can roll a sum of 10
-       ///  m = total sides for dice 1, n = total sides for dice 2
        /// </summary>
+      
+       /// <param name="m">The total sides of dice 1</param>
+       /// <param name="n">The total sides of dice 2</param>
+       
        /// <returns> A message that states the number of way you can roll a sum of 10 </returns>
 
        /// <example>

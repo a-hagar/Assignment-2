@@ -13,6 +13,13 @@ namespace WebApplication_2.Controllers
         ///  Adding the calories of order of a burger, drink, side and a dessert, returns the toal calories of an order
         /// </summary>
 
+        /// <param name="burger">The number item from the burger section</param>
+        /// <param name="drink">The number item from the drink section</param>
+        /// <param name="side">The number item from the side order section</param>
+        /// <param name="dessert">The number item from the dessert order section</param>
+
+        /// <returns> A message that counts the total calories of an order </returns>
+
         /// <example>
         /// GET api/J1/Menu/1/2/3/4
         /// "Your total calorie count is 691"
@@ -22,7 +29,7 @@ namespace WebApplication_2.Controllers
         /// "Please order an item from the menu!"
         /// </example>
 
-        
+
         [HttpGet]
         [Route("api/J1/Menu/{burger}/{drink}/{side}/{dessert}")]
         public string Menu(int burger, int drink, int side, int dessert)
